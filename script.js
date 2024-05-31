@@ -81,9 +81,18 @@ fetch('geojson/reseau_hydrographique.geojson')
 fetch('geojson/Pts_GR4J.geojson')
     .then(response => response.json())
     .then(data => {
+        var geojsonMarkerOptions = {
+            radius: 8,
+            fillColor: "#00ff00",
+            color: "#200", // Correction : 'colore' -> 'color'
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        };
+
         var stationsLayer = L.geoJSON(data, {
             pointToLayer: function (feature, latlng) {
-                return L.marker(latlng, { className: 'station-maker' });
+                return L.circleMarker(latlng, geojsonMarkerOptions);
             },
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.link) {
@@ -96,5 +105,5 @@ fetch('geojson/Pts_GR4J.geojson')
         });
 
         // Ajouter la couche des stations au-dessus des autres couches
-        stationsLayer.addTo(map);
+        geojsonMarkerOptions.addTo(map);
     });
