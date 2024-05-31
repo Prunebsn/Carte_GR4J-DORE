@@ -107,6 +107,4 @@ fetch('geojson/Pts_GR4J.geojson')
         // Ajouter la couche des stations au-dessus des autres couches
         stationsLayer.addTo(map);
     })
-    .catch(error => {
-        console.error('Error fetching the GeoJSON data:', error);
     });
