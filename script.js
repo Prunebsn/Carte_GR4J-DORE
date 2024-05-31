@@ -57,7 +57,7 @@ fetch('geojson/Pts_GR4J.geojson')
             }
         });
         // Ajouter la couche des stations au-dessus des autres couches
-        stationsLayer.addTo(map);
+        stationsLayer.addTo(map).bringToFront();
     });
 
 // Charger la couche réseau hydrographique avec la projection Lambert 93
