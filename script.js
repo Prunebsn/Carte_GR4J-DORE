@@ -5,7 +5,7 @@ var map = L.map('map').setView([45.571, 3.64], 10);
 L.Control.LisezMoi = L.Control.extend({
     onAdd: function(map) {
         var div = L.DomUtil.create('div', 'leaflet-control-lisez-moi');
-        div.innerHTML = '<a href="/Cartes_Dore/Notice.pdf" target="_blank">Lisez Moi</a>';
+        div.innerHTML = '<a href="/Carte_GR4J-DORE/Notice.pdf" target="_blank">Lisez Moi</a>';
         return div;
     },
 
@@ -88,7 +88,7 @@ fetch('geojson/Pts_GR4J.geojson')
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.link) {
                     // Concaténer le chemin du dossier PDF avec la valeur de la propriété 'link'
-                    var pdfUrl = '/Cartes_Dore/pdf/' + feature.properties.link + '.pdf';
+                    var pdfUrl = '/Carte_GR4J-DORE/pdf/' + feature.properties.link + '.pdf';
                     var stationsName = feature.properties.Nom_GR4J;
                     layer.bindPopup('<a href="' + pdfUrl + '" target="_blank">' + stationsName + '</a>');
                 }
