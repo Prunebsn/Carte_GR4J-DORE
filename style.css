@@ -1,0 +1,50 @@
+/* style.css */
+.leaflet-control-lisez-moi {
+    position: fixed;
+    top: 10px;
+    right: 10px; /* Ajustez cette valeur pour déplacer le bouton horizontalement */
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.leaflet-control-lisez-moi a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+/* Ajoutez ici vos styles personnalisés */
+.BV_Stations {
+    fill: none; /* Supprimer le remplissage des stations */
+    stroke: black; /* Couleur de contour des stations */
+}
+
+/* Styles pour les cours d'eau importants */
+.reseau-hydrographique-1 {
+    stroke: blue;
+    stroke-width: 4;
+    /* Autres styles */
+}
+
+/* Styles pour les cours d'eau moyennement importants */
+.reseau-hydrographique-2 {
+    stroke: blue;
+    stroke-width: 3;
+    /* Autres styles */
+}
+
+/* Styles pour les cours d'eau peu importants */
+.reseau-hydrographique-3 {
+    stroke: blue;
+    stroke-width: 2;
+    /* Autres styles */
+}
+/* Styles pour les cours d'eau peu importants */
+.reseau-hydrographique-NULL {
+    stroke: blue;
+    stroke-width: 1;
+    /* Autres styles */
+}
