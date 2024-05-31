@@ -81,23 +81,14 @@ fetch('geojson/reseau_hydrographique.geojson')
 fetch('geojson/Pts_GR4J.geojson')
     .then(response => response.json())
     .then(data => {
-        var geojsonMarkerOptions = {
-            radius: 8,
-            fillColor: "#00ff00",
-            color: "#200", // Correction : 'colore' -> 'color'
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-        };
-
         var stationsLayer = L.geoJSON(data, {
             pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, geojsonMarkerOptions);
+                return L.marker(latlng, { className: 'station-maker' });
             },
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.link) {
                     // Concaténer le chemin du dossier PDF avec la valeur de la propriété 'link'
-                    var pdfUrl = '/Carte_GR4J-DORE/pdf/' + feature.properties.link + '.pdf';
+                    var pdfUrl = '/Cartes_Dore/pdf/' + feature.properties.link + '.pdf';
                     var stationsName = feature.properties.Nom_GR4J;
                     layer.bindPopup('<a href="' + pdfUrl + '" target="_blank">' + stationsName + '</a>');
                 }
@@ -106,5 +97,5 @@ fetch('geojson/Pts_GR4J.geojson')
 
         // Ajouter la couche des stations au-dessus des autres couches
         stationsLayer.addTo(map);
-    })
     });
+  
