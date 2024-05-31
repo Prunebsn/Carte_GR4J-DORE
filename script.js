@@ -44,22 +44,12 @@ fetch('geojson/BV_Dore.geojson')
 fetch('geojson/Pts_GR4J.geojson')
     .then(response => response.json())
     .then(data => {
-        var geojsonMarkerOptions = {
-            radius: 8,
-            fillColor: "#00ff00", // Vert
-            color: "#006400", // Vert foncé
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.8
-        };
-
         var stationsLayer = L.geoJSON(data, {
             pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, geojsonMarkerOptions);
+                return L.circleMarker(latlng, { className: 'geojson-marker' }); // Utilisation de la classe CSS
             },
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.link) {
-                    // Concaténer le chemin du dossier PDF avec la valeur de la propriété 'link'
                     var pdfUrl = '/Carte_GR4J-DORE/pdf/' + feature.properties.link + '.pdf';
                     var stationsName = feature.properties.Nom_GR4J;
                     layer.bindPopup('<a href="' + pdfUrl + '" target="_blank">' + stationsName + '</a>');
