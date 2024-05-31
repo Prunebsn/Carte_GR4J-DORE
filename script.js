@@ -88,7 +88,7 @@ fetch('geojson/Pts_GR4J.geojson')
             onEachFeature: function (feature, layer) {
                 if (feature.properties && feature.properties.link) {
                     // Concaténer le chemin du dossier PDF avec la valeur de la propriété 'link'
-                    var pdfUrl = '/Cartes_Dore/pdf/' + feature.properties.link + '.pdf';
+                    var pdfUrl = '/Carte_GR4J-DORE/pdf/' + feature.properties.link + '.pdf';
                     var stationsName = feature.properties.Nom_GR4J;
                     layer.bindPopup('<a href="' + pdfUrl + '" target="_blank">' + stationsName + '</a>');
                 }
