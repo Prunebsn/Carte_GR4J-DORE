@@ -48,3 +48,11 @@
     stroke-width: 1;
     /* Autres styles */
 }
+/* Styles pour les marqueurs circulaires personnalisés */
+.geojson-marker {
+    fill: #00ff00;
+    stroke: #200;
+    stroke-width: 1;
+    fill-opacity: 0.8;
+}
+
