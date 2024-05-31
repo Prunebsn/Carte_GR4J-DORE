@@ -78,7 +78,7 @@ fetch('geojson/reseau_hydrographique.geojson')
     });
 
 // Charger la couche des stations avec la projection Lambert 93 et popups
-fetch('geojson/Stations_2.geojson')
+fetch('geojson/Pts_GR4J.geojson')
     .then(response => response.json())
     .then(data => {
         var stationsLayer = L.geoJSON(data, {
@@ -89,7 +89,7 @@ fetch('geojson/Stations_2.geojson')
                 if (feature.properties && feature.properties.link) {
                     // Concaténer le chemin du dossier PDF avec la valeur de la propriété 'link'
                     var pdfUrl = '/Cartes_Dore/pdf/' + feature.properties.link + '.pdf';
-                    var stationsName = feature.properties.CdStationH + ' : ' + feature.properties.LbStationH;
+                    var stationsName = feature.properties.Nom_GR4J;
                     layer.bindPopup('<a href="' + pdfUrl + '" target="_blank">' + stationsName + '</a>');
                 }
             }
