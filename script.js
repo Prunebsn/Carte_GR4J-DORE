@@ -5,7 +5,7 @@ var map = L.map('map').setView([45.571, 3.64], 10);
 L.Control.LisezMoi = L.Control.extend({
     onAdd: function(map) {
         var div = L.DomUtil.create('div', 'leaflet-control-lisez-moi');
-        div.innerHTML = '<a href="/Carte_GR4J-DORE/Notice.pdf" target="_blank">Lisez Moi</a>';
+        div.innerHTML = '<a href="/Carte_GR4J-DORE/Notice1.pdf" target="_blank">Lisez Moi</a>';
         return div;
     },
 
